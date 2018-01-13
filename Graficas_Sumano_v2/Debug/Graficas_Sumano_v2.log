@@ -1,0 +1,4 @@
+﻿  Graficas_Sumano_v2.cpp
+c:\users\usuario\documents\visual studio 2015\projects\graficas computacionales\proyecto_v2\graficas_sumano_v2\graficas_sumano_v2\graficas_sumano_v2.cpp(44): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  Graficas_Sumano_v2.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Graficas computacionales\Proyecto_v2\Graficas_Sumano_v2\Debug\Graficas_Sumano_v2.exe
+  Graficas_Sumano_v2.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Graficas computacionales\Proyecto_v2\Graficas_Sumano_v2\Debug\Graficas_Sumano_v2.pdb (Full PDB)
