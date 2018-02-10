@@ -1,0 +1,6 @@
+﻿  IDVParser.cpp
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\idv_gfx\project\idv_parser\src\idvparser.cpp(17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\idv_gfx\project\idv_parser\src\idvparser.cpp(24): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\idv_gfx\project\idv_parser\src\idvparser.cpp(26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\idv_gfx\project\idv_parser\src\idvparser.cpp(31): warning C4244: 'argument': conversion from 'float' to 'unsigned __int64', possible loss of data
+  IDV_Parser.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\IDV_Gfx\Project\Lib\Debug\x64\IDV_Parser.lib
