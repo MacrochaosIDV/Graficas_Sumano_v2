@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDV_Framework", "IDV_Framework\IDV_Framework.vcxproj", "{67749D8D-B6C7-447C-8F57-03F24506C4C3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4D71F703-8A0F-499D-824F-D9021CE55231} = {4D71F703-8A0F-499D-824F-D9021CE55231}
+		{A1D7AA77-8E12-4518-888A-34F4FEB7798D} = {A1D7AA77-8E12-4518-888A-34F4FEB7798D}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDV_App", "IDV_App\IDV_App.vcxproj", "{B456E96A-3239-4087-84D9-5B45F400BF0B}"
 	ProjectSection(ProjectDependencies) = postProject

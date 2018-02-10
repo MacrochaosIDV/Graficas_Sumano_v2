@@ -1,0 +1,3 @@
+﻿  Entry.cpp
+  IDV_TestApplication.cpp
+LINK : fatal error LNK1181: cannot open input file 'IDV_Math.lib'

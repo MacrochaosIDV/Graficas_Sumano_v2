@@ -1,3 +1,3 @@
 ﻿  IDVParser.cpp
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working\idv_gfx\project\idv_parser\src\idvparser.cpp(31): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-  IDV_Parser.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\working\IDV_Gfx\Project\Lib\Debug\Win32\IDV_Parser.lib
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(31): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  IDV_Parser.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\working_v2\Graficas_Sumano_v2\Project\Lib\Debug\Win32\IDV_Parser.lib

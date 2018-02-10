@@ -1,0 +1,8 @@
+﻿  IDVUtils.cpp
+  IDVBaseDriver.cpp
+  IDVD3DXDriver.cpp
+  IDVD3DXShader.cpp
+  IDVGLDriver.cpp
+  IDVGLShader.cpp
+  IDVWin32Manager.cpp
+  IDV_Framework.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\working_v2\Graficas_Sumano_v2\Project\Lib\Release\Win32\IDV_Framework.lib
