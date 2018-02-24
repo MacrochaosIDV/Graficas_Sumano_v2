@@ -11,7 +11,7 @@
 using namespace Microsoft::WRL;
 
 
-class D3DXShader : public ShaderBase {
+class IDVD3DXShader : public IDVShaderBase {
 public:
 
 	bool CreateShaderAPI(std::string src_vs, std::string src_fs, unsigned int sig);

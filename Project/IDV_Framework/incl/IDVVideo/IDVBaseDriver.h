@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-enum Signature {
+enum IDVSig {
 	// ATTRIBUTES
 	HAS_NORMALS		= 0x1,
 	HAS_TANGENTS	= 0x2,
@@ -24,16 +24,21 @@ enum Signature {
 	USE_NO_LIGHT	= 0x800
 };
 
-class ShaderBase {
+enum IDVAPI {
+	DIRECTX = 0,
+	OPENGL
+};
+
+class IDVShaderBase {
 public:
-	ShaderBase() : Sig(0) {	}
+	IDVShaderBase() : Sig(0) {	}
 	bool			CreateShader(std::string src_vs, std::string src_fs, unsigned int sig);
 	virtual bool    CreateShaderAPI(std::string src_vs, std::string src_fs, unsigned int sig) = 0;
 
 	unsigned int	Sig;
 };
 
-class BaseDriver {
+class IDVBaseDriver {
 public:
 	enum {
 		DEPTH_ATTACHMENT = -1,
@@ -46,7 +51,9 @@ public:
 		COLOR6_ATTACHMENT = 6,
 		COLOR7_ATTACHMENT = 7,
 	};
-	BaseDriver() {  }
+	IDVBaseDriver(IDVAPI Selected) {
+		SelectedApi = Selected;
+	}
 	virtual	void	 InitDriver() = 0;
 	virtual void	 CreateSurfaces() = 0;
 	virtual void	 DestroySurfaces() = 0;
@@ -58,16 +65,17 @@ public:
 	virtual void	 SwapBuffers() = 0;
 
 	virtual int			CreateShader(std::string src_vs, std::string src_fs, unsigned int sig) = 0;
-	virtual ShaderBase*	GetShaderSig(unsigned int sig) = 0;
-	virtual ShaderBase*	GetShaderIdx(int id) = 0;
+	virtual IDVShaderBase*	GetShaderSig(unsigned int sig) = 0;
+	virtual IDVShaderBase*	GetShaderIdx(int id) = 0;
 	virtual void		DestroyShaders() = 0;
 
-	std::vector<ShaderBase*>	Shaders;
+	IDVAPI						SelectedApi;
+	std::vector<IDVShaderBase*>	Shaders;
 };
 
 
 #ifndef GETDRIVERBASE
-extern BaseDriver *g_pBaseDriver;
+extern IDVBaseDriver *g_pBaseDriver;
 #define GETDRIVERBASE() g_pBaseDriver
 #endif
 

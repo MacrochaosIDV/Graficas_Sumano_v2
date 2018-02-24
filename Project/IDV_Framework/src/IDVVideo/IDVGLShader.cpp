@@ -1,7 +1,7 @@
 #include <IDVVideo/IDVGLShader.h>
 #include <IDVUtils/IDVUtils.h>
 
-bool GLShader::CreateShaderAPI(std::string src_vs, std::string src_fs, unsigned int sig) {
+bool IDVGLShader::CreateShaderAPI(std::string src_vs, std::string src_fs, unsigned int sig) {
 
 	ShaderProg = glCreateProgram();
 

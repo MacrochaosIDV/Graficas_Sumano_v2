@@ -8,10 +8,7 @@
 #include <iterator>
 #include <fstream>
 
-#pragma comment(lib,"glew.lib")
-#pragma comment(lib,"OpenGL32.Lib")
-
-void	GLDriver::InitDriver() {
+void	IDVGLDriver::InitDriver() {
 
 	GLenum err = glewInit();
 	if (GLEW_OK != err) {
@@ -56,53 +53,53 @@ void	GLDriver::InitDriver() {
 
 }
 
-void	GLDriver::CreateSurfaces() {
+void	IDVGLDriver::CreateSurfaces() {
 
 }
 
-void	GLDriver::DestroySurfaces() {
+void	IDVGLDriver::DestroySurfaces() {
 
 }
 
-void	GLDriver::Update() {
+void	IDVGLDriver::Update() {
 
 }
 
-void	GLDriver::DestroyDriver() {
+void	IDVGLDriver::DestroyDriver() {
 
 }
 
-void	GLDriver::SetWindow(void *window) {
+void	IDVGLDriver::SetWindow(void *window) {
 
 }
 
-void	GLDriver::SetDimensions(int w, int h){
+void	IDVGLDriver::SetDimensions(int w, int h){
     width = w;
     height = h;
 }
 
-void	GLDriver::Clear() {
+void	IDVGLDriver::Clear() {
 	glClearColor(0.5,0.0,0.5,1.0);
 	glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
 
 }
 
-void	GLDriver::SwapBuffers() {
+void	IDVGLDriver::SwapBuffers() {
 	SDL_GL_SwapBuffers();
 }
 
-bool GLDriver::CheckExtension(std::string s){
+bool IDVGLDriver::CheckExtension(std::string s){
 	return (Extensions.find(s) != std::string::npos);
 }
 
-int GLDriver::CreateShader(std::string src_vs, std::string src_fs, unsigned int sig) {
+int IDVGLDriver::CreateShader(std::string src_vs, std::string src_fs, unsigned int sig) {
 	for (unsigned int i = 0; i < Shaders.size(); i++) {
 		if (Shaders[i]->Sig == sig) {
 			return i;
 		}
 	}
 
-	GLShader* shader = new GLShader();
+	IDVGLShader* shader = new IDVGLShader();
 	if (shader->CreateShader(src_vs, src_fs, sig)) {
 		Shaders.push_back(shader);
 		return (Shaders.size() - 1);
@@ -113,7 +110,7 @@ int GLDriver::CreateShader(std::string src_vs, std::string src_fs, unsigned int 
 	return -1;
 }
 
-ShaderBase*	GLDriver::GetShaderSig(unsigned int sig) {
+IDVShaderBase*	IDVGLDriver::GetShaderSig(unsigned int sig) {
 	for (unsigned int i = 0; i < Shaders.size(); i++) {
 		if (Shaders[i]->Sig == sig) {
 			return Shaders[i];
@@ -122,7 +119,7 @@ ShaderBase*	GLDriver::GetShaderSig(unsigned int sig) {
 	return 0;
 }
 
-ShaderBase*	GLDriver::GetShaderIdx(int id) {
+IDVShaderBase*	IDVGLDriver::GetShaderIdx(int id) {
 	if (id < 0 || id >= (int)Shaders.size()) {
 		printf("Warning null ptr ShaderBase Idx\n");
 		return 0;
@@ -131,9 +128,9 @@ ShaderBase*	GLDriver::GetShaderIdx(int id) {
 	return Shaders[id];
 }
 
-void GLDriver::DestroyShaders() {
+void IDVGLDriver::DestroyShaders() {
 	for (unsigned int i = 0; i < Shaders.size(); i++) {
-		GLShader *pShader = dynamic_cast<GLShader*>(Shaders[i]);
+		IDVGLShader *pShader = dynamic_cast<IDVGLShader*>(Shaders[i]);
 		delete pShader;
 	}
 }

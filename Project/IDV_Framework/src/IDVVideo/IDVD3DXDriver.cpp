@@ -16,7 +16,7 @@ ComPtr<ID3D11RenderTargetView>  D3D11RenderTargetView;  // View into the back bu
 ComPtr<ID3D11DepthStencilView>  D3D11DepthStencilTargetView; // View into the depth buffer
 ComPtr<ID3D11Texture2D>			D3D11DepthTex;	// Actual depth buffer texture
 
-void D3DXDriver::InitDriver(){
+void IDVD3DXDriver::InitDriver(){
 	//	Descriptor of the Back Buffer
 	DXGI_MODE_DESC BackBufferDesc;
 	ZeroMemory(&BackBufferDesc, sizeof(DXGI_MODE_DESC));
@@ -44,6 +44,7 @@ void D3DXDriver::InitDriver(){
 	//	Device
 	//	Device Context
 	//	Swap Chain
+#define DEBUG_DRIVER 1
 	HRESULT hr = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL,
 #if DEBUG_DRIVER
 		D3D11_CREATE_DEVICE_DEBUG,	// Debug errors
@@ -101,32 +102,32 @@ void D3DXDriver::InitDriver(){
 	D3D11DeviceContext->RSSetViewports(1, &viewport);
 }
 
-void D3DXDriver::CreateSurfaces(){
+void IDVD3DXDriver::CreateSurfaces(){
 
 }
 
-void D3DXDriver::DestroySurfaces(){
+void IDVD3DXDriver::DestroySurfaces(){
 
 }
 
-void D3DXDriver::Update(){
+void IDVD3DXDriver::Update(){
 
 }
 
-void D3DXDriver::DestroyDriver(){
+void IDVD3DXDriver::DestroyDriver(){
 
 }
 
-void D3DXDriver::SetWindow(void *window){
+void IDVD3DXDriver::SetWindow(void *window){
 	hwnd = GetActiveWindow(); // Get the HWND of the window
 }
 
-void D3DXDriver::SetDimensions(int w, int h){
+void IDVD3DXDriver::SetDimensions(int w, int h){
 	Width=w;
 	Height=h;
 }
 
-void D3DXDriver::Clear(){
+void IDVD3DXDriver::Clear(){
 	float rgba[4];
 	rgba[0] = 0.5f;
 	rgba[1] = 0.5f;
@@ -139,19 +140,19 @@ void D3DXDriver::Clear(){
 	D3D11DeviceContext->ClearDepthStencilView(D3D11DepthStencilTargetView.Get(), D3D11_CLEAR_DEPTH , 1.0f, 0);
 }
 
-void D3DXDriver::SwapBuffers(){
+void IDVD3DXDriver::SwapBuffers(){
 	// Swap between back and front buffer
 	DXGISwapchain->Present(0, 0);
 }
 
-int	D3DXDriver::CreateShader(std::string src_vs, std::string src_fs, unsigned int sig) {
+int	IDVD3DXDriver::CreateShader(std::string src_vs, std::string src_fs, unsigned int sig) {
 	for (unsigned int i = 0; i < Shaders.size(); i++) {
 		if (Shaders[i]->Sig == sig) {
 			return i;
 		}
 	}
 
-	D3DXShader* shader = new D3DXShader();
+	IDVD3DXShader* shader = new IDVD3DXShader();
 	if (shader->CreateShader(src_vs, src_fs, sig)) {
 		Shaders.push_back(shader);
 		return (Shaders.size() - 1);
@@ -163,7 +164,7 @@ int	D3DXDriver::CreateShader(std::string src_vs, std::string src_fs, unsigned in
 
 }
 
-ShaderBase*	D3DXDriver::GetShaderSig(unsigned int sig) {
+IDVShaderBase*	IDVD3DXDriver::GetShaderSig(unsigned int sig) {
 	for (unsigned int i = 0; i < Shaders.size(); i++) {
 		if (Shaders[i]->Sig == sig) {
 			return Shaders[i];
@@ -173,7 +174,7 @@ ShaderBase*	D3DXDriver::GetShaderSig(unsigned int sig) {
 	return 0;
 }
 
-ShaderBase*	D3DXDriver::GetShaderIdx(int id) {
+IDVShaderBase*	IDVD3DXDriver::GetShaderIdx(int id) {
 	if (id < 0 || id >= (int)Shaders.size()) {
 		printf("Warning null ptr ShaderBase Idx\n");
 		return 0;
@@ -182,9 +183,9 @@ ShaderBase*	D3DXDriver::GetShaderIdx(int id) {
 	return Shaders[id];
 }
 
-void D3DXDriver::DestroyShaders() {
+void IDVD3DXDriver::DestroyShaders() {
 	for (unsigned int i = 0; i < Shaders.size(); i++) {
-		D3DXShader *pShader = dynamic_cast<D3DXShader*>(Shaders[i]);
+		IDVD3DXShader *pShader = dynamic_cast<IDVD3DXShader*>(Shaders[i]);
 		delete pShader;
 	}
 }

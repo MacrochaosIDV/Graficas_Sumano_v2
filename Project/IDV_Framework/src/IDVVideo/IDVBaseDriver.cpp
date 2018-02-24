@@ -5,10 +5,10 @@
 #include <fstream>
 #include <string.h>
 
-BaseDriver*	g_pBaseDriver = 0;
+IDVBaseDriver*	g_pBaseDriver = 0;
 
 
-bool ShaderBase::CreateShader(std::string src_vs, std::string src_fs, unsigned int sig) {
+bool IDVShaderBase::CreateShader(std::string src_vs, std::string src_fs, unsigned int sig) {
 
 	std::string Defines = "";
 
@@ -18,25 +18,25 @@ bool ShaderBase::CreateShader(std::string src_vs, std::string src_fs, unsigned i
 	Defines += "#define NO_LIGHT\n\n";
 	#endif
 
-	if (sig&Signature::HAS_NORMALS)
+	if (sig&IDVSig::HAS_NORMALS)
 		Defines += "#define USE_NORMALS\n\n";
-	if (sig&Signature::HAS_TEXCOORDS0)
+	if (sig&IDVSig::HAS_TEXCOORDS0)
 		Defines += "#define USE_TEXCOORD0\n\n";
-	if (sig&Signature::HAS_TEXCOORDS1)
+	if (sig&IDVSig::HAS_TEXCOORDS1)
 		Defines += "#define USE_TEXCOORD1\n\n";
-	if (sig&Signature::HAS_TANGENTS)
+	if (sig&IDVSig::HAS_TANGENTS)
 		Defines += "#define USE_TANGENTS\n\n";
-	if (sig&Signature::HAS_BINORMALS)
+	if (sig&IDVSig::HAS_BINORMALS)
 		Defines += "#define USE_BINORMALS\n\n";
-	if (sig&Signature::DIFFUSE_MAP)
+	if (sig&IDVSig::DIFFUSE_MAP)
 		Defines += "#define DIFFUSE_MAP\n\n";
-	if (sig&Signature::SPECULAR_MAP)
+	if (sig&IDVSig::SPECULAR_MAP)
 		Defines += "#define SPECULAR_MAP\n\n";
-	if (sig&Signature::GLOSS_MAP)
+	if (sig&IDVSig::GLOSS_MAP)
 		Defines += "#define GLOSS_MAP\n\n";
-	if (sig&Signature::NORMAL_MAP)
+	if (sig&IDVSig::NORMAL_MAP)
 		Defines += "#define NORMAL_MAP\n\n";
-	if (sig&Signature::REFLECT_MAP)
+	if (sig&IDVSig::REFLECT_MAP)
 		Defines += "#define REFLECT_MAP\n\n";
 	
 	

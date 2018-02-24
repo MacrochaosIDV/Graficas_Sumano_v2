@@ -6,9 +6,9 @@
 #include <GL/glew.h>
 #include <SDL/SDL.h>
 
-class GLDriver : public BaseDriver {
+class IDVGLDriver : public IDVBaseDriver {
 public:
-	GLDriver() {  }
+	IDVGLDriver() : IDVBaseDriver(IDVAPI::OPENGL) {}
 	void	InitDriver();
 	void	CreateSurfaces();
 	void	DestroySurfaces();
@@ -18,8 +18,8 @@ public:
 	void	SetDimensions(int, int);
 
 	int			CreateShader(std::string src_vs, std::string src_fs, unsigned int sig);
-	ShaderBase*	GetShaderSig(unsigned int sig);
-	ShaderBase*	GetShaderIdx(int Id);
+	IDVShaderBase*	GetShaderSig(unsigned int sig);
+	IDVShaderBase*	GetShaderIdx(int Id);
 	void		DestroyShaders();
 
 	void	Clear();

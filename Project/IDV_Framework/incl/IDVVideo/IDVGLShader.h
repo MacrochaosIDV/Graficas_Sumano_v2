@@ -8,9 +8,9 @@
 #include <SDL/SDL.h>
 
 
-class GLShader : public ShaderBase {
+class IDVGLShader : public IDVShaderBase {
 public:
-	GLShader() {
+	IDVGLShader() {
 		matWorldViewProjUniformLoc = -1;
 		matWorldUniformLoc = -1;
 
@@ -41,7 +41,7 @@ public:
 		tex7_loc = -1;
 	}
 
-	virtual ~GLShader() {}
+	virtual ~IDVGLShader() {}
 
 	bool CreateShaderAPI(std::string src_vs, std::string src_fs, unsigned int sig);
 

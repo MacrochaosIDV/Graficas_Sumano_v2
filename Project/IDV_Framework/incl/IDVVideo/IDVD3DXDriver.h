@@ -12,9 +12,9 @@
 #include <wrl/client.h>
 using namespace Microsoft::WRL;
 
-class D3DXDriver : public BaseDriver {
+class IDVD3DXDriver : public IDVBaseDriver {
 public:
-	D3DXDriver() {  }
+	IDVD3DXDriver() : IDVBaseDriver(IDVAPI::DIRECTX) {  }
 	void	InitDriver();
 	void	CreateSurfaces();
 	void	DestroySurfaces();
@@ -24,8 +24,8 @@ public:
 	void	SetDimensions(int, int);
 
 	int			CreateShader(std::string src_vs, std::string src_fs, unsigned int sig);
-	ShaderBase*	GetShaderSig(unsigned int sig);
-	ShaderBase*	GetShaderIdx(int Id);
+	IDVShaderBase*	GetShaderSig(unsigned int sig);
+	IDVShaderBase*	GetShaderIdx(int Id);
 	void		DestroyShaders();
 
 	void	Clear();

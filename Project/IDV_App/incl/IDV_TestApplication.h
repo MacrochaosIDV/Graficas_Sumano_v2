@@ -2,6 +2,8 @@
 #define IDV_TEST_APPLICATION
 
 #include <IDVBase/IDVCoreBase.h>
+#include <IDVScene/IDVPrimitiveManager.h>
+#include <IDVScene/IDVPrimitiveInstance.h>
 
 class IDVTestApplication : public IDVBaseApplication {
 public:
@@ -12,6 +14,9 @@ public:
 	void OnUpdate();
 	void OnDraw();
 	void OnInput();
+
+	PrimitiveManager *PrimitiveMgr;
+	PrimitiveInst	 QuadInst;
 };
 
 #endif

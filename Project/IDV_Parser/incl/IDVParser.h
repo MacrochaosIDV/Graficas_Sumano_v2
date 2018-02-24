@@ -1,7 +1,7 @@
 #ifndef IDV_PARSER
 #define IDV_PARSER
 
-#include <SDL.h>
+#include <SDL\SDL.h>
 #include <iostream>
 #include <fstream>
 #include <string>

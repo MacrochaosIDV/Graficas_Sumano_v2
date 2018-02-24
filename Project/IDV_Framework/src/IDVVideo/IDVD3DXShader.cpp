@@ -3,7 +3,7 @@
 extern ComPtr<ID3D11Device>            D3D11Device;
 extern ComPtr<ID3D11DeviceContext>     D3D11DeviceContext;
 
-bool D3DXShader::CreateShaderAPI(std::string src_vs, std::string src_fs, unsigned int sig) {
+bool IDVD3DXShader::CreateShaderAPI(std::string src_vs, std::string src_fs, unsigned int sig) {
 	HRESULT hr = S_OK;
 	{
 		VS_blob = nullptr;
@@ -62,7 +62,7 @@ bool D3DXShader::CreateShaderAPI(std::string src_vs, std::string src_fs, unsigne
 	offset += 16;
 	VertexDecl.push_back(elementDesc);
 
-	if (sig&Signature::HAS_NORMALS) {
+	if (sig&IDVSig::HAS_NORMALS) {
 		elementDesc.SemanticName = "NORMAL";
 		elementDesc.SemanticIndex = 0;
 		elementDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
@@ -74,7 +74,7 @@ bool D3DXShader::CreateShaderAPI(std::string src_vs, std::string src_fs, unsigne
 		VertexDecl.push_back(elementDesc);
 	}
 
-	if (sig&Signature::HAS_TANGENTS) {
+	if (sig&IDVSig::HAS_TANGENTS) {
 		elementDesc.SemanticName = "TANGENT";
 		elementDesc.SemanticIndex = 0;
 		elementDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
@@ -86,7 +86,7 @@ bool D3DXShader::CreateShaderAPI(std::string src_vs, std::string src_fs, unsigne
 		VertexDecl.push_back(elementDesc);
 	}
 
-	if (sig&Signature::HAS_BINORMALS) {
+	if (sig&IDVSig::HAS_BINORMALS) {
 		elementDesc.SemanticName = "BINORMAL";
 		elementDesc.SemanticIndex = 0;
 		elementDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
@@ -98,7 +98,7 @@ bool D3DXShader::CreateShaderAPI(std::string src_vs, std::string src_fs, unsigne
 		VertexDecl.push_back(elementDesc);
 	}
 
-	if (sig&Signature::HAS_TEXCOORDS0) {
+	if (sig&IDVSig::HAS_TEXCOORDS0) {
 		elementDesc.SemanticName = "TEXCOORD";
 		elementDesc.SemanticIndex = 0;
 		elementDesc.Format = DXGI_FORMAT_R32G32_FLOAT;

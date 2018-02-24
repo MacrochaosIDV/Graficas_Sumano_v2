@@ -5,5 +5,10 @@
   IDVD3DXDriver.cpp
   IDVBaseDriver.cpp
   IDVUtils.cpp
+  IDVSceneProp.cpp
+  IDVPrimitiveManager.cpp
+  IDVPrimitiveInstance.cpp
+  IDVGLQuad.cpp
+  IDVD3DQuad.cpp
   Generating Code...
   IDV_Framework.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\working_v2\Graficas_Sumano_v2\Project\Lib\Debug\Win32\IDV_Framework.lib
