@@ -1,3 +1,4 @@
+#pragma once
 #ifndef IDV_TEST_APPLICATION
 #define IDV_TEST_APPLICATION
 
@@ -17,6 +18,7 @@ public:
 
 	PrimitiveManager *PrimitiveMgr;
 	PrimitiveInst	 QuadInst;
+	PrimitiveInst	 MeshInst;
 };
 
 #endif

@@ -1,14 +1,7 @@
-﻿  IDVWin32Manager.cpp
-  IDVGLShader.cpp
-  IDVGLDriver.cpp
-  IDVD3DXShader.cpp
-  IDVD3DXDriver.cpp
-  IDVBaseDriver.cpp
-  IDVUtils.cpp
-  IDVSceneProp.cpp
-  IDVPrimitiveManager.cpp
-  IDVPrimitiveInstance.cpp
-  IDVGLQuad.cpp
-  IDVD3DQuad.cpp
-  Generating Code...
+﻿  IDVD3DMesh.cpp
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvd3dmesh.cpp(44): warning C4018: '<': signed/unsigned mismatch
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvd3dmesh.cpp(52): warning C4018: '<': signed/unsigned mismatch
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvd3dmesh.cpp(105): warning C4018: '<': signed/unsigned mismatch
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvd3dmesh.cpp(109): warning C4018: '<': signed/unsigned mismatch
+LINK : warning LNK4068: /MACHINE not specified; defaulting to X86
   IDV_Framework.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\working_v2\Graficas_Sumano_v2\Project\Lib\Debug\Win32\IDV_Framework.lib

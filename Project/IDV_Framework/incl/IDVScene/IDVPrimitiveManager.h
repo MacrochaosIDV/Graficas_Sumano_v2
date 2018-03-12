@@ -4,7 +4,8 @@
 #include <d3dx9math.h>
 
 #include <vector>
-
+#include <IDVScene/IDVGLMesh.h>
+#include <IDVScene/IDVD3DMesh.h>
 #include <IDVVideo/IDVBaseDriver.h>
 #include <IDVScene/IDVPrimitive.h>
 #include <IDVScene/IDVSceneProp.h>
@@ -12,7 +13,7 @@
 class PrimitiveManager {
 public:
 	PrimitiveManager(IDVAPI Selected) { SelectedApi = Selected;  }
-	void SetVP(D3DXMATRIX *vp) {
+	void SetVP(XMATRIX44 *vp) {
 		pVP = vp;
 	}
 	int  CreateQuad();
@@ -26,7 +27,7 @@ public:
 	std::vector<PrimitiveBase*> primitives;
 
 	IDVAPI		SelectedApi;
-	D3DXMATRIX *pVP;
+	XMATRIX44 *pVP;
 };
 
 #endif

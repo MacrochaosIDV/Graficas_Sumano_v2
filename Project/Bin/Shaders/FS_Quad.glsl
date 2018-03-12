@@ -6,7 +6,7 @@ varying highp vec2 vecUVCoords;
 varying highp vec4 Pos;
 
 void main(){
-	gl_FragColor = vec4(vecUVCoords.x,vecUVCoords.y,vecUVCoords.z,1.0);
+	gl_FragColor = vec4(vecUVCoords.x,vecUVCoords.y,0.0,1.0);
 }
 
 

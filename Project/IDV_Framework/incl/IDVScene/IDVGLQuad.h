@@ -8,7 +8,7 @@
 #include <IDVVideo\IDVBaseDriver.h>
 #include <IDVScene\IDVPrimitive.h>
 
-class GLQuad : public PrimitiveBase{
+class GLQuad : public PrimitiveBase {
 public:
 	struct Vert {
 		float x,y,z,w;

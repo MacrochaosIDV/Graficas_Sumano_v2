@@ -201,6 +201,30 @@ struct XVECTOR2 {
 };
 struct XVECTOR3;
 struct XVECTOR4;
+//struct XVECTOR4 {
+//	union {
+//		struct
+//		{
+//			float x, y, z, w;
+//		};
+//		struct
+//		{
+//			float r, g, b, a;
+//		};
+//		float v[4];
+//		unsigned int ul[4];
+//		long l[4];
+//		XVECTOR4() {
+//			x = y = z = w = 0;
+//		}
+//		XVECTOR4(XVECTOR4 &V) {
+//			x = V.x; y = V.y; z = V.z; w = V.w;
+//		}
+//		XVECTOR4(float fx, float fy, float fz, float fw) {
+//			x = fx; y = fy; z = fz; w = fw;
+//		}
+//	}
+//};
 
 struct XMATRIX44
 {

@@ -25,9 +25,18 @@ int PrimitiveManager::CreateQuad() {
 	return (int)(primitives.size() - 1);
 }
 
-int PrimitiveManager::CreateMesh(std::string path)
+int PrimitiveManager::CreateMesh(std::string path_n_Name)
 {
-	return 0;
+	PrimitiveBase *primitive = 0;
+
+	if (this->SelectedApi == IDVAPI::OPENGL)
+		primitive = new GLMesh(path_n_Name);
+	else
+		primitive = new D3DXMesh(path_n_Name);
+
+	primitive->Create();
+	primitives.push_back(primitive);
+	return (int)(primitives.size() - 1);
 }
 
 void PrimitiveManager::SetSceneProps(SceneProps *p) {

@@ -4,12 +4,13 @@
 
 #include <IDVScene/IDVPrimitive.h>
 #include <IDVVideo/IDVBaseDriver.h>
+#include <IDV_Math.h>
 
 #include <d3dx9math.h>
 
 class PrimitiveInst {
 	public:
-		void	CreateInstance(PrimitiveBase *pPrim, D3DXMATRIX *pVP) {
+		void	CreateInstance(PrimitiveBase *pPrim, XMATRIX44 *pVP) {
 			pBase = pPrim;
 			pViewProj = pVP;
 			Visible = true;
@@ -36,14 +37,14 @@ class PrimitiveInst {
 		void SetVisible(bool f) { Visible = f; }
 		bool Visible;
 
-		D3DXMATRIX		Position;
-		D3DXMATRIX		Scale;
-		D3DXMATRIX		RotationX;
-		D3DXMATRIX		RotationY;
-		D3DXMATRIX		RotationZ;
-		D3DXMATRIX		Final;
+		XMATRIX44		Position;
+		XMATRIX44		Scale;
+		XMATRIX44		RotationX;
+		XMATRIX44		RotationY;
+		XMATRIX44		RotationZ;
+		XMATRIX44		Final;
 
-		D3DXMATRIX		*pViewProj;
+		XMATRIX44		*pViewProj;
 
 		PrimitiveBase	*pBase;
 };
