@@ -1,11 +1,10 @@
 #ifndef IDV_PRIMITIVEMANAGER_H
 #define IDV_PRIMITIVEMANAGER_H
 
-#include <d3dx9math.h>
+#include <IDV_Math.h>
 
 #include <vector>
-#include <IDVScene/IDVGLMesh.h>
-#include <IDVScene/IDVD3DMesh.h>
+
 #include <IDVVideo/IDVBaseDriver.h>
 #include <IDVScene/IDVPrimitive.h>
 #include <IDVScene/IDVSceneProp.h>

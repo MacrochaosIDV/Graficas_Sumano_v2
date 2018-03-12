@@ -1,4 +1,3 @@
-#pragma once
 #ifndef IDV_TEST_APPLICATION
 #define IDV_TEST_APPLICATION
 

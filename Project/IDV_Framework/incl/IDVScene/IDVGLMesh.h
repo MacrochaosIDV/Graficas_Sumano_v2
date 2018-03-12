@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef IDV_MESH_GL_H
 #define IDV_MESH_GL_H
 

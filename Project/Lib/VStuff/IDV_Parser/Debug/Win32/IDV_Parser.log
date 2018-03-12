@@ -1,10 +1,10 @@
 ﻿  IDVParser.cpp
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(43): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(61): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(66): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(67): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(68): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(93): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(133): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(138): warning C4018: '<': signed/unsigned mismatch
-  IDV_Parser.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\working_v2\Graficas_Sumano_v2\Project\Lib\Debug\Win32\IDV_Parser.lib
+c:\users\edenriqu\documents\alumnos\graficas\proyectos\sumano\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(43): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+c:\users\edenriqu\documents\alumnos\graficas\proyectos\sumano\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(61): warning C4018: '<': signed/unsigned mismatch
+c:\users\edenriqu\documents\alumnos\graficas\proyectos\sumano\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(66): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+c:\users\edenriqu\documents\alumnos\graficas\proyectos\sumano\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(67): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+c:\users\edenriqu\documents\alumnos\graficas\proyectos\sumano\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(68): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+c:\users\edenriqu\documents\alumnos\graficas\proyectos\sumano\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(93): warning C4018: '<': signed/unsigned mismatch
+c:\users\edenriqu\documents\alumnos\graficas\proyectos\sumano\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(133): warning C4018: '<': signed/unsigned mismatch
+c:\users\edenriqu\documents\alumnos\graficas\proyectos\sumano\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(138): warning C4018: '<': signed/unsigned mismatch
+  IDV_Parser.vcxproj -> C:\Users\edenriqu\Documents\Alumnos\Graficas\Proyectos\Sumano\Graficas_Sumano_v2\Project\Lib\Debug\Win32\IDV_Parser.lib

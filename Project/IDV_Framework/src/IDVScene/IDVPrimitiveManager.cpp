@@ -1,7 +1,8 @@
 #include <IDVScene/IDVPrimitiveManager.h>
 #include <IDVScene/IDVGLQuad.h>
 #include <IDVScene/IDVD3DQuad.h>
-
+#include <IDVScene/IDVGLMesh.h>
+#include <IDVScene/IDVD3DMesh.h>
 
 PrimitiveBase*	PrimitiveManager::GetPrimitive(unsigned int index) {
 	if (index >= primitives.size())

@@ -1,17 +1,17 @@
 #include <IDVDefs.h>
 //
 #include <IDVWindow/IDVWin32Manager.h>
-#include <IDV_TestApplication.h>
+#include "IDV_TestApplication.h"
 //
 //#include<IDVParser.h>
 #include<iostream>
-#include<IDV_Math.h>
+
 
 IDVBaseApplication *g_pApplication = 0;
 IDVBaseWindow	   *g_pWindow = 0;
 
 int main() {
-
+	
 	g_pApplication = new IDVTestApplication();
 	g_pWindow = new IDVWin32Manager((IDVBaseApplication*)g_pApplication);
 	g_pWindow->InitGlobalVars();
