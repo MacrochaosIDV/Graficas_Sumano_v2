@@ -26,9 +26,9 @@ void IDVWin32Manager::OnCreateApplication() {
 	}
 
 
-//	m_pVideoDriver = new IDVGLDriver();
+	m_pVideoDriver = new IDVGLDriver();
 
-	m_pVideoDriver = new IDVD3DXDriver();
+	//m_pVideoDriver = new IDVD3DXDriver();
 	m_pVideoDriver->SetDimensions(width, height);
 
 	m_pVideoDriver->SetWindow(0);
@@ -61,7 +61,8 @@ void IDVWin32Manager::ProcessInput() {
 			if (evento.key.keysym.sym == SDLK_q) {
 				m_bAlive = false;
 			}
-			
+			//pBaseApp->IManager.KeyStates[]
+			//IDVBaseApplication->IManager.KeyStates[0][evento.key.keysym.sym]=true;
 		}break;
 
 		case SDL_QUIT: {
@@ -69,7 +70,8 @@ void IDVWin32Manager::ProcessInput() {
 		}break;
 
 		case SDL_KEYUP: {
-
+			//IDVBaseApplication->IManager.KeyStates[0][evento.key.keysym.sym]=false;
+			//IDVBaseApplication->IManager.KeyStates[1][evento.key.keysym.sym]=false;
 		}break;
 
 		case SDL_VIDEORESIZE: {

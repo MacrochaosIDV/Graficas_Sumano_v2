@@ -1,3 +1,1 @@
-﻿  IDV_Math.cpp
-c:\users\edenriqu\documents\alumnos\graficas\proyectos\sumano\graficas_sumano_v2\project\idv_math\src\idv_math.cpp(238): warning C4172: returning address of local variable or temporary: res
-  IDV_Math.vcxproj -> C:\Users\edenriqu\Documents\Alumnos\Graficas\Proyectos\Sumano\Graficas_Sumano_v2\Project\Lib\Debug\Win32\IDV_Math.lib
+﻿  IDV_Math.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\working_v2\Graficas_Sumano_v2\Project\Lib\Debug\Win32\IDV_Math.lib

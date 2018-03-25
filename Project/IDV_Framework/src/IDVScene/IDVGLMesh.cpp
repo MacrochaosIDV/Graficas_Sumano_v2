@@ -6,10 +6,10 @@
 void GLMesh::Create() {}
 void GLMesh::Create(std::string path_n_Name) {
 	//IDVParser parser;
-	SigBase = IDVSig::HAS_TEXCOORDS0;
+	SigBase = IDVSig::HAS_TEXCOORDS0 | IDVSig::HAS_NORMALS;
 
-	char *vsSourceP = file2string("Shaders/VS_Quad.glsl");
-	char *fsSourceP = file2string("Shaders/FS_Quad.glsl");
+	char *vsSourceP = file2string("Shaders/VS_Mesh.glsl");
+	char *fsSourceP = file2string("Shaders/FS_Mesh.glsl");
 
 	std::string vstr = std::string(vsSourceP);
 	std::string fstr = std::string(fsSourceP);
@@ -22,7 +22,7 @@ void GLMesh::Create(std::string path_n_Name) {
 	parser.ReadFile(path_n_Name);
 	// vertex read                x      y     z     w      u     v
 
-	for(int i = 0; i < parser.n_meshes; ++i)
+	for(int i = 0; i < parser.n_meshes + 1; ++i)
 	{
 		glGenBuffers(1, &parser.v_Meshes[i].VB); //number of meshes?
 		//glGenBuffers(1, &parser.v_Meshes[i].VB_mesh[0]);
@@ -32,9 +32,9 @@ void GLMesh::Create(std::string path_n_Name) {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 		for (int j = 0; i < parser.v_Meshes[i].n_mats; ++j) {
-			glGenBuffers(1, &parser.v_Meshes[i].IB); //number of general indexes?
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, parser.v_Meshes[i].IB);//
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, parser.v_Meshes[i].n_Indexes * sizeof(unsigned short), &parser.v_Meshes[i].Materials[j].SubSet_IB[0], GL_STATIC_DRAW);
+			glGenBuffers(1, &parser.v_Meshes[i].Materials[j].IB); //number of material
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, parser.v_Meshes[i].Materials[j].IB);//
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, parser.v_Meshes[i].Materials[j].SubSet_IB.size() * sizeof(unsigned short), &parser.v_Meshes[i].Materials[j].SubSet_IB[0], GL_STATIC_DRAW);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 		}
 	}
@@ -76,14 +76,17 @@ void GLMesh::Draw(float *t, float *vp) {
 	for (int i = 0; i < parser.v_Meshes.size(); ++i)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, parser.v_Meshes[i].VB);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, parser.v_Meshes[i].IB);
+
 
 		glEnableVertexAttribArray(s->vertexAttribLoc);
 		glVertexAttribPointer(s->vertexAttribLoc, 4, GL_FLOAT, GL_FALSE, sizeof(CVertexMesh_p), BUFFER_OFFSET(0));
 		glEnableVertexAttribArray(s->uvAttribLoc);
 		glVertexAttribPointer(s->uvAttribLoc, 2, GL_FLOAT, GL_FALSE, sizeof(CVertexMesh_p), BUFFER_OFFSET(16));
-
-		glDrawElements(GL_TRIANGLES, parser.v_Meshes[i].n_Indexes, GL_UNSIGNED_SHORT, 0);
+		for (int j = 0; j < parser.v_Meshes[i].n_mats; ++j) {
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, parser.v_Meshes[i].Materials[j].IB);
+			glDrawElements(GL_TRIANGLES, parser.v_Meshes[i].Materials[j].SubSet_IB.size(), GL_UNSIGNED_SHORT, 0);
+	}
+		
 	}
 	
 	/*glBindBuffer(GL_ARRAY_BUFFER, Vertexes);

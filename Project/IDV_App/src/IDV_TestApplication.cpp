@@ -20,7 +20,7 @@ void IDVTestApplication::CreateAssets() {
 
 	PrimitiveMgr = new PrimitiveManager(m_pWindow->m_pVideoDriver->SelectedApi);
 
-	int index = PrimitiveMgr->CreateMesh("CerdoNuevo.X");
+	int index = PrimitiveMgr->CreateMesh("Models/CerdoNuevo.X");
 	MeshInst.CreateInstance(PrimitiveMgr->GetPrimitive(index), &VP);
 
 	//D3DXMATRIX View;
@@ -40,7 +40,8 @@ void IDVTestApplication::OnUpdate() {
 void IDVTestApplication::OnDraw(){
 	m_pWindow->m_pVideoDriver->Clear();
 
-	QuadInst.Draw();
+	//QuadInst.Draw();
+	MeshInst.Draw();
 
 	m_pWindow->m_pVideoDriver->SwapBuffers();
 }

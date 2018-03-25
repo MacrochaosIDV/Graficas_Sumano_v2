@@ -35,7 +35,7 @@ int PrimitiveManager::CreateMesh(std::string path_n_Name)
 	else
 		primitive = new D3DXMesh(path_n_Name);
 
-	primitive->Create();
+	primitive->Create(path_n_Name);
 	primitives.push_back(primitive);
 	return (int)(primitives.size() - 1);
 }

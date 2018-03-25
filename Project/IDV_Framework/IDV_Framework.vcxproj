@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="src\IDVScene\IDVD3DMesh.cpp" />
     <ClCompile Include="src\IDVScene\IDVD3DQuad.cpp" />
     <ClCompile Include="src\IDVScene\IDVGLMesh.cpp" />
@@ -35,6 +37,7 @@
     <ClCompile Include="src\IDVWindow\Win32\IDVWin32Manager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="incl\IDVBase\IDVCoreBase.h" />
     <ClInclude Include="incl\IDVDefs.h" />
     <ClInclude Include="incl\IDVScene\IDVD3DMesh.h" />
@@ -52,6 +55,7 @@
     <ClInclude Include="incl\IDVVideo\IDVGLDriver.h" />
     <ClInclude Include="incl\IDVVideo\IDVGLShader.h" />
     <ClInclude Include="incl\IDVWindow\IDVWin32Manager.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

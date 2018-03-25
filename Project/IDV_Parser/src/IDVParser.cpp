@@ -1,14 +1,17 @@
 #include <IDVParser.h>
 #include <stdio.h>
 
-
+using std::cout;
+using std::endl;
+using std::vector;
+using std::string;
 
 void IDVParser::PrintFromLibrary() {
 	printf("Hello World from Static Library\n");
 }
 
-void IDVParser::ReadFile(std::string filename) {
-	std::string currentline;
+void IDVParser::ReadFile(string filename) {
+	string currentline;
 	std::ifstream myfile(filename);
 	int n_temp;
 	if (myfile.is_open())
@@ -17,8 +20,9 @@ void IDVParser::ReadFile(std::string filename) {
 		while (getline(myfile, currentline))
 		{
 			int Pos = currentline.find("xof 0303txt 0032"); //check if file is compatible
+			int Pos2 = 0;
 			if (Pos != -1) {
-				std::cout << currentline << std::endl;
+				cout << currentline << endl;
 			}
 			// parsing vars
 			float x = 0, y = 0, z = 0, u = 0, v = 0,  nVertexcount;
@@ -26,28 +30,44 @@ void IDVParser::ReadFile(std::string filename) {
 			char separator;
 
 			//find meshes
+			
 			Pos = currentline.find("Mesh ");
 			if (Pos != -1) {
 				Pos = currentline.find("template");
 				if (Pos == -1) {
 
+					Pos2 = currentline.find("Mesh ");
+					if (Pos != -1) {
+						Pos = currentline.find("template");
+						if (Pos == -1) {
+						
+						}
+					}
 					//check substring
 
 					MESH_p currMesh; //make new mesh
 					++n_meshes; // inc mesh counter
-					v_Meshes.push_back(currMesh); //put new mesh in mesh vector
+					//v_Meshes.push_back(currMesh); //put new mesh in mesh vector
 
-					std::cout << "Vertexes start" << std::endl;
+					cout << "Vertexes start" << endl;
 					myfile >> nVertexcount >> separator;
-					std::cout << nVertexcount << std::endl;
+					cout << nVertexcount << endl;
 					currMesh.n_Vertexes = nVertexcount;
-					//std::vector<CVertexMesh_p> Verts_reader(nVertexcount);
+
+				
+					//vector<CVertexMesh_p> Verts_reader(nVertexcount);
 					for (int i = 0; i < nVertexcount; ++i) {
 						myfile >> x >> separator >> y >> separator >> z >> separator >> separator;
-						currMesh.VB_mesh[i].x = x;
+						CVertexMesh_p tmp;
+						tmp.x = x;
+						tmp.y = y;
+						tmp.z = z;
+						tmp.w = 1;
+						currMesh.VB_mesh.push_back(tmp);
+						/*currMesh.VB_mesh[i].x = x;
 						currMesh.VB_mesh[i].y = y;
 						currMesh.VB_mesh[i].z = z;
-						currMesh.VB_mesh[i].w = 1;
+						currMesh.VB_mesh[i].w = 1;*/
 						//Verts.push_back(V);
 						/*Xvertex.push_back(x);
 						Yvertex.push_back(y);
@@ -55,9 +75,10 @@ void IDVParser::ReadFile(std::string filename) {
 						//cout << Verts[i].x << ", " << Verts[i].y << ", " << Verts[i].z << endl;
 						//std::cout << "Vertex: " << i + 1 << " || x: " << x << ", y: " << y << ", z: " << z << std::endl;
 					}
-					//cout << "Vertexes end" << endl;
+					cout << "Vertexes end" << endl;
 					myfile >> currMesh.n_Indexes >> separator;
-					//cout << "indexes start" << endl;
+					cout << "indexes start" << endl;
+					cout << currMesh.n_Indexes << endl;
 					for (int i = 0; i < currMesh.n_Indexes; i++) {
 						myfile >> n_temp >> separator >> x >> separator >> y >> separator >> z >> separator >> separator;
 						/*indices_reader[i] = ix;
@@ -69,10 +90,14 @@ void IDVParser::ReadFile(std::string filename) {
 						//cout << Xindex[i] << ", " << Yindex[i] << ", " << Zindex[i] << ", " << endl;
 						//cout << indices_reader[i] << endl;
 					}
-					//cout << "indexes end" << endl;
-					Pos = currentline.find("MeshNormals normals {");
+					cout << "indexes end" << endl;
+					Pos = currentline.find("MeshNormals normals");
+					while (Pos == -1) {
+						getline(myfile, currentline);
+						Pos = currentline.find("MeshNormals normals");
+					}
 					if (Pos != -1) {
-						//std::cout << "Normals start" << std::endl;
+						cout << "Normals start" << endl;
 						myfile >> n_temp >> separator;
 						for (int i = 0; i < nVertexcount; i++) {
 							myfile >> x >> separator >> y >> separator >> z >> separator >> separator;
@@ -85,11 +110,11 @@ void IDVParser::ReadFile(std::string filename) {
 							//NZ.push_back(nz);
 							//cout << Verts[i].nx << ", " << Verts[i].ny << ", " << Verts[i].nz << endl;
 						}
-						//cout << "Normals end" << endl;
+						cout << "Normals end" << endl;
 					}
 					myfile >> currMesh.n_Indexes >> separator;
 					//cout << nIndexcount << endl;
-					//cout << "indexes 2 start" << endl;
+					cout << "indexes 2 start" << endl;
 					for (int i = 0; i < currMesh.n_Indexes; i++) {
 						myfile >> n_temp >> separator >> x >> separator >> y >> separator >> z >> separator >> separator;
 						//Xindex.push_back(ix);
@@ -97,14 +122,18 @@ void IDVParser::ReadFile(std::string filename) {
 						//Zindex.push_back(iz);
 						//cout << ix << ", " << iy << ", " << iz << ", " << endl;
 					}
-					//cout << "indexes 2 end" << endl;
+					cout << "indexes 2 end" << endl;
 					getline(myfile, currentline);
 					getline(myfile, currentline);
 					getline(myfile, currentline);
 					getline(myfile, currentline);
 					Pos = currentline.find("MeshTextureCoords tc0 {");
+					while (Pos == -1) {
+						getline(myfile, currentline);
+						Pos = currentline.find("MeshTextureCoords tc0 {");
+					}
 					if (Pos != -1) {
-						//cout << "Textures start" << endl;
+						cout << "Textures start" << endl;
 						myfile >> n_temp >> separator;
 						for (int i = 0; i < nVertexcount; i++) {
 							myfile >> u >> separator >> v >> separator >> separator;
@@ -114,7 +143,7 @@ void IDVParser::ReadFile(std::string filename) {
 							//Texture_V.push_back(tv);
 							//cout << Verts[i].s << ", " << Verts[i].t << endl;
 						}
-						//cout << "Textures end" << endl;
+						cout << "Textures end" << endl;
 					}
 
 					//for (int i = 0; i <currMesh.n_Indexes; i++) {
@@ -125,11 +154,17 @@ void IDVParser::ReadFile(std::string filename) {
 					//	currMesh.IB_mesh.push_back(index2[i]);
 					//	//l++;
 					//}
+
 					Pos = currentline.find("MeshMaterialList mtls {");
+					while (Pos == -1) {
+						getline(myfile, currentline);
+						Pos = currentline.find("MeshMaterialList mtls {");
+					}
 					if (Pos != -1) {
 						//cout << "Materials start" << endl;
 						//myfile >> v_Meshes[0].n_mats >> separator;
 						myfile >> currMesh.n_mats >> separator; //get number of materials
+						cout << "Materials start" << endl;
 						for (int k = 0; k < currMesh.n_mats; ++k) {
 							MATERIAL_p nu_mat;
 							currMesh.Materials.push_back(nu_mat);
@@ -145,6 +180,7 @@ void IDVParser::ReadFile(std::string filename) {
 							currMesh.Materials[componentgetter].SubSet_IB.push_back(currMesh.IB_mesh[i]);
 							//material_indices.push_back(componentgetter);
 						}
+						cout << "Materials end" << endl;
 						/*while (n_matCounter < Materials) {
 							Pos = currentline.find("diffuseMap");
 							if (Pos != -1) {
@@ -152,20 +188,52 @@ void IDVParser::ReadFile(std::string filename) {
 
 							}
 						}*/
-
 					}
+					Pos = currentline.find("Material Dflt_Material {");
+					while (Pos == -1) {
+						getline(myfile, currentline);
+						Pos = currentline.find("Material Dflt_Material {");
+					}
+					if (Pos != -1) {
+						int Pos2 = -1;
+						for (int i = 0; i < currMesh.n_mats; ++i) {
+							Pos = currentline.find("diffuseMap");
+							Pos2 = currentline.find("diffuseColor");
+							while (Pos2 == -1) {
+								getline(myfile, currentline);
+								Pos = currentline.find("diffuseColor");
+							}
+							if (Pos2 != -1) {
+								getline(myfile, currentline);
+								getline(myfile, currentline);
+								myfile >> currMesh.Materials[i].R >> separator;
+								myfile >> currMesh.Materials[i].G >> separator;
+								myfile >> currMesh.Materials[i].B >> separator;
+								myfile >> currMesh.Materials[i].A >> separator;
+							}
+							while (Pos == -1) {
+								getline(myfile, currentline);
+								Pos = currentline.find("diffuseMap");
+							}
+							if (Pos != -1) {
+								getline(myfile, currentline);
+								myfile >> separator >> currMesh.Materials[i].DifusemapPath;
+							}
+						}
+					}
+					v_Meshes.push_back(currMesh); //put new mesh in mesh vector
 					//cout << "Materials end" << endl;
 					//CVertex gets filled with data
 					//currMesh.VB_mesh = Verts_reader;
 					//int j = 0;
 					//int k = 0;
 					//int l = 0;
-					
-					myfile.close();
 				}
-
 			}
+
 		}
+		myfile.close();
+		cout << "file at end sending data to draw" << endl;
 	}
 	else {
 		std::cout << "file not found or is unreadable" << std::endl;

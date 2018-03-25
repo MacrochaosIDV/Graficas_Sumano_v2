@@ -33,6 +33,7 @@ public:
 
 	void Create();
 	void Create(char *) {}
+	void Create(std::string path_n_name) {}
 	void Transform(float *t);
 	void Draw(float *t, float *vp);
 	void Destroy();

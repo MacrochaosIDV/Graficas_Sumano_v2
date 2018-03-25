@@ -21,6 +21,7 @@ public:
 		m_pWindow = pWindow;
 	}
 
+	//InputManager ~IManager;
 	IDVBaseWindow	*m_pWindow;
 };
 

@@ -7,12 +7,25 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <wrl.h>
+#include <wrl/client.h>
+using namespace Microsoft::WRL;
+using std::string;
+//using namespace std::vector;
+
+#include <d3d11.h>
+#include <dxgi.h>
+#include <D3Dcompiler.h>
 
 struct MATERIAL_p {
-	std::vector<unsigned short> SubSet_IB; //subset index buffer
-	//
-	//
-	//
+	std::vector<unsigned int> SubSet_IB; //subset index buffer
+	unsigned int IB;
+	ComPtr<ID3D11Buffer>		_IB;
+	string DifusemapPath;
+	float R;
+	float G;
+	float B;
+	float A;
 };
 struct CVertexMesh_p {
 
@@ -33,6 +46,7 @@ struct MESH_p {
 	unsigned int n_Vertexes = 0;
 	unsigned int VB;
 	unsigned int IB;
+	ComPtr<ID3D11Buffer>		_VB;
 	//
 	//
 	//
