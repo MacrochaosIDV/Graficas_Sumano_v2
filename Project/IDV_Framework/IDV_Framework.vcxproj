@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="IDVTimer.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="src\IDVScene\IDVD3DMesh.cpp" />
     <ClCompile Include="src\IDVScene\IDVD3DQuad.cpp" />
@@ -38,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="IDVTimer.h" />
     <ClInclude Include="incl\IDVBase\IDVCoreBase.h" />
     <ClInclude Include="incl\IDVDefs.h" />
     <ClInclude Include="incl\IDVScene\IDVD3DMesh.h" />

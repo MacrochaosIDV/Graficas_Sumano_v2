@@ -90,6 +90,9 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>Source Files\IDVUtils</Filter>
     </ClCompile>
+    <ClCompile Include="IDVTimer.cpp">
+      <Filter>Source Files\IDVUtils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="incl\IDVBase\IDVCoreBase.h">
@@ -148,6 +151,9 @@
       <Filter>Header Files\IDVUtils</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
+      <Filter>Header Files\IDVUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="IDVTimer.h">
       <Filter>Header Files\IDVUtils</Filter>
     </ClInclude>
   </ItemGroup>

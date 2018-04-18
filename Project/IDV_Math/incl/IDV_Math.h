@@ -386,8 +386,8 @@ struct XVECTOR3 {
 	//operator float* ();
 	//operator const float* () const;
 
-	//XVECTOR3& operator += (const XVECTOR3&);
-	//XVECTOR3& operator -= (const XVECTOR3&);
+	XVECTOR3& operator += (const XVECTOR3&);
+	XVECTOR3& operator -= (const XVECTOR3&);
 	//XVECTOR3& operator *= (float);
 	//XVECTOR3& operator /= (float);
 
@@ -396,7 +396,7 @@ struct XVECTOR3 {
 
 	//XVECTOR3 operator + (const XVECTOR3&) const;
 	
-	//XVECTOR3 operator * (float) const;
+	XVECTOR3 operator * (float) const;
 	//XVECTOR3 operator / (float) const;
 
 	XVECTOR3 operator - (const XVECTOR3&) const;

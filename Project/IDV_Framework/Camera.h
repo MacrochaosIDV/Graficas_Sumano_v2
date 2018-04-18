@@ -1,9 +1,16 @@
 #pragma once
 #include <IDV_Math.h>
+#include "IDVTimer.h"
+#include "InputManager.h"
+
 class Camera {
 public:
 	Camera();
 	~Camera();
+
+	InputManager InputM;
+	IDVTimer Timer;
+
 	void	Init(XVECTOR3 position, float fov, float ratio, float np, float fp, bool lf = true);
 	void	CreatePojection();
 

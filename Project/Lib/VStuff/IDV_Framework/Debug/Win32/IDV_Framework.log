@@ -1,14 +1,9 @@
-﻿  IDVPrimitiveManager.cpp
-  IDVGLMesh.cpp
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvglmesh.cpp(25): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvglmesh.cpp(34): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvglmesh.cpp(76): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvglmesh.cpp(85): warning C4018: '<': signed/unsigned mismatch
-  IDVD3DMesh.cpp
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvd3dmesh.cpp(44): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvd3dmesh.cpp(56): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvd3dmesh.cpp(109): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_framework\src\idvscene\idvd3dmesh.cpp(113): warning C4018: '<': signed/unsigned mismatch
+﻿  Camera.cpp
   Generating Code...
+  Skipping... (no relevant changes detected)
+  IDVPrimitiveManager.cpp
+  IDVPrimitiveInstance.cpp
+  IDVGLMesh.cpp
+  IDVD3DMesh.cpp
 LINK : warning LNK4068: /MACHINE not specified; defaulting to X86
   IDV_Framework.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\working_v2\Graficas_Sumano_v2\Project\Lib\Debug\Win32\IDV_Framework.lib

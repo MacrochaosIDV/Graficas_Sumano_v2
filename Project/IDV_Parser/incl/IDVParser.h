@@ -11,7 +11,6 @@
 #include <wrl/client.h>
 using namespace Microsoft::WRL;
 using std::string;
-//using namespace std::vector;
 
 #include <d3d11.h>
 #include <dxgi.h>
@@ -22,6 +21,9 @@ struct MATERIAL_p {
 	unsigned int IB;
 	ComPtr<ID3D11Buffer>		_IB;
 	string DifusemapPath;
+	bool hasNormalmap;
+	bool hasBinormals;
+	bool hasTangents;
 	float R;
 	float G;
 	float B;

@@ -255,6 +255,13 @@ void XVECTOR3::Normalize(){
 	y /= mag;
 	z /= mag;
 }
+XVECTOR3 XVECTOR3::operator*(float f) const {
+	XVECTOR3 V;
+	V.x *= f;
+	V.y *= f;
+	V.z *= f;
+	return V;
+}
 XVECTOR3 XVECTOR3::operator-(const XVECTOR3 & vec_other) const {
 	XVECTOR3 V;
 	V.x = this->x - vec_other.x;
@@ -262,8 +269,15 @@ XVECTOR3 XVECTOR3::operator-(const XVECTOR3 & vec_other) const {
 	V.z = this->z - vec_other.z;
 	return V;
 }
-XVECTOR3 XVECTOR3::operator-() const
-{
+XVECTOR3 & XVECTOR3::operator+=(const XVECTOR3 & v) {
+	x += v.x; y += v.y; z = v.z;
+	return *this;
+}
+XVECTOR3 & XVECTOR3::operator-=(const XVECTOR3 & v) {
+	x += -v.x; y += -v.y; z = -v.z;
+	return *this;
+}
+XVECTOR3 XVECTOR3::operator-() const {
 	return XVECTOR3();
 }
 

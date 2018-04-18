@@ -7,5 +7,5 @@ c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\grafi
 c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(118): warning C4018: '<': signed/unsigned mismatch
 c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(168): warning C4018: '<': signed/unsigned mismatch
 c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(173): warning C4018: '<': signed/unsigned mismatch
-c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(199): warning C4018: '<': signed/unsigned mismatch
+c:\users\usuario\documents\visual studio 2015\projects\git clones\graficas\graficas_sumano\working_v2\graficas_sumano_v2\project\idv_parser\src\idvparser.cpp(198): warning C4018: '<': signed/unsigned mismatch
   IDV_Parser.vcxproj -> C:\Users\Usuario\Documents\Visual Studio 2015\Projects\Git clones\Graficas\Graficas_Sumano\working_v2\Graficas_Sumano_v2\Project\Lib\Debug\Win32\IDV_Parser.lib

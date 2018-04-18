@@ -195,42 +195,22 @@ void IDVParser::ReadFile(string filename) {
 						Pos = currentline.find("Material Dflt_Material {");
 					}
 					if (Pos != -1) {
-						int Pos2 = -1;
 						for (int i = 0; i < currMesh.n_mats; ++i) {
 							Pos = currentline.find("diffuseMap");
-							Pos2 = currentline.find("diffuseColor");
-							while (Pos2 == -1) {
-								getline(myfile, currentline);
-								Pos = currentline.find("diffuseColor");
-							}
-							if (Pos2 != -1) {
-								getline(myfile, currentline);
-								getline(myfile, currentline);
-								myfile >> currMesh.Materials[i].R >> separator;
-								myfile >> currMesh.Materials[i].G >> separator;
-								myfile >> currMesh.Materials[i].B >> separator;
-								myfile >> currMesh.Materials[i].A >> separator;
-							}
+						
 							while (Pos == -1) {
 								getline(myfile, currentline);
 								Pos = currentline.find("diffuseMap");
 							}
 							if (Pos != -1) {
 								getline(myfile, currentline);
-								myfile >> separator >> currMesh.Materials[i].DifusemapPath;
+								currMesh.Materials[i].DifusemapPath = currentline;
 							}
 						}
 					}
 					v_Meshes.push_back(currMesh); //put new mesh in mesh vector
-					//cout << "Materials end" << endl;
-					//CVertex gets filled with data
-					//currMesh.VB_mesh = Verts_reader;
-					//int j = 0;
-					//int k = 0;
-					//int l = 0;
 				}
 			}
-
 		}
 		myfile.close();
 		cout << "file at end sending data to draw" << endl;
